@@ -7,7 +7,7 @@
 
             SnakeAndLadder SnakeAndLadderObj = new SnakeAndLadder();
 
-            SnakeAndLadderObj.exactWinPosition();
+            SnakeAndLadderObj.countTheDice();
         }
     }
 }
