@@ -7,7 +7,7 @@
 
             SnakeAndLadder SnakeAndLadderObj = new SnakeAndLadder();
 
-            SnakeAndLadderObj.countTheDice();
+            SnakeAndLadderObj.playWith2Players();
         }
     }
 }

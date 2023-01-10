@@ -12,14 +12,16 @@ namespace SnakeAndLadderNew
         public const int BACKWARD_MOVE = 2;
         public const int NO_MOVE = 3;
 
-        public void countTheDice()
+        public void playWith2Players()
         {
-            int position = 0;
+            int playerPosition1 = 0;
+            int playerPosition2 = 0;
+            int activePlayer = 1;
             int count = 0;
 
             Random random = new Random();
 
-            while (position < 100)
+            while (playerPosition1 < 100 && playerPosition2 < 100)
             {
                 count = count + 1;
                 int movingCheck = random.Next(1, 3);
@@ -29,26 +31,70 @@ namespace SnakeAndLadderNew
                 switch (movingCheck)
                 {
                     case FORWARD_MOVE:
-                        if ((position + stepCheck) <= 100)
+                        if (activePlayer == 1)
                         {
-                            position = position + stepCheck;
-                            Console.WriteLine(" Forward move ");
+                            if ((playerPosition1 + stepCheck) <= 100)
+                            {
+                                playerPosition1 = playerPosition1 + stepCheck;
+                                Console.WriteLine(" Forward move ");
+                            }
+                        }
+                        else
+                        {
+                            if ((playerPosition2 + stepCheck) <= 100)
+                            {
+                                playerPosition2 = playerPosition2 + stepCheck;
+                                Console.WriteLine(" Forward move ");
+                            }
                         }
                         break;
                     case BACKWARD_MOVE:
-                        if (position > 0)
+                        if (activePlayer == 1)
                         {
-                            position = position - stepCheck;
-                            Console.WriteLine(" Backward move ");
+                            if (playerPosition1 > 0)
+                            {
+                                playerPosition1 = playerPosition1 - stepCheck;
+                                Console.WriteLine(" Backward move ");
+                            }
+                            activePlayer = 2;
+                        }
+                        else
+                        {
+                            if (playerPosition2 > 0)
+                            {
+                                playerPosition2 = playerPosition2 - stepCheck;
+                                Console.WriteLine(" Backward move ");
+                            }
+                            activePlayer = 1;
                         }
                         break;
                     case NO_MOVE:
+                        if (activePlayer == 1)
+                        {
+                            activePlayer = 2;
+                        }
+                        else
+                        {
+                            activePlayer = 1;
+                        }
                         Console.WriteLine("No move ");
                         break;
                 }
-                Console.WriteLine(position + " step count ");
                 Console.WriteLine("Number of Dice roll = " + count);
             }
+            Console.WriteLine(playerPosition1 + " step count of player1 ");
+            Console.WriteLine(playerPosition2 + " step count of player2 ");
+
+            if (playerPosition1 == 100)
+            {
+                Console.WriteLine("Player 1 is WIN : " + playerPosition1);
+            }
+            else
+            {
+                Console.WriteLine("Player 2 is WIN : " + playerPosition2);
+            }
+            Console.WriteLine("Number of Dice roll = " + count);
+
         }
     }
 }
