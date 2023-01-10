@@ -7,7 +7,7 @@
 
             SnakeAndLadder SnakeAndLadderObj = new SnakeAndLadder();
 
-            SnakeAndLadderObj.singlePlayer();
+            SnakeAndLadderObj.firstDiceRoll();
         }
     }
 }
