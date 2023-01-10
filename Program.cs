@@ -7,7 +7,7 @@
 
             SnakeAndLadder SnakeAndLadderObj = new SnakeAndLadder();
 
-            SnakeAndLadderObj.snakeAndLadder();
+            SnakeAndLadderObj.winningPosition();
         }
     }
 }
